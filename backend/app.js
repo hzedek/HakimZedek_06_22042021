@@ -14,12 +14,13 @@ app.use((req, res, next) => {
     next();
   });
 
-
 app.use(bodyParser.json());
-
 app.use('/images', express.static(path.join(__dirname, 'images')));
 app.use('/api/auth', userRoutes);
+
 app.post('/api', sauceRoutes);
 app.use('/api', sauceRoutes);
+app.put('/api', sauceRoutes);
+app.delete('/api', sauceRoutes);
 
 module.exports = app;
